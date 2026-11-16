@@ -1,0 +1,387 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-google-sans), sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  /* Base 16, scale 1.2 */
+  --text-48: 48px;
+  --text-48--line-height: 56px;
+  --text-40: 40px;
+  --text-40--line-height: 48px;
+  --text-32: 32px;
+  --text-32--line-height: 40px;
+  --text-28: 28px;
+  --text-28--line-height: 32px;
+  --text-24: 24px;
+  --text-24--line-height: 36px;
+  --text-18: 18px;
+  --text-18--line-height: 28px;
+  --text-16: 16px;
+  --text-16--line-height: 24px;
+  --text-13: 13px;
+  --text-13--line-height: 20px;
+  --text-11: 11px;
+  --text-11--line-height: 16px;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #fdfdfd;
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    font-synthesis: none;
+  }
+}
+
+@keyframes wedge-impulse {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-155px);
+    opacity: 0;
+  }
+}
+
+@keyframes scan-drift {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: var(--scan-period) 0;
+  }
+}
+
+@media (hover: hover) {
+  .scan-track {
+    animation: scan-drift 32s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .group:hover .scan-track {
+    animation-play-state: running;
+  }
+}
+
+/* First step card. Rest pose is the Figma stack.
+   The stack rises and grows on one shared timing. Side sheets drift apart with it. */
+.situation-sheets {
+  transform-origin: center;
+  transform: translateY(0px) scale(1);
+  transition: transform 500ms ease-in-out;
+}
+
+.situation-sheet[data-part="table"] {
+  transform-origin: 0 0;
+  transform: translateX(0px) translateY(0px) rotate(14deg);
+}
+
+.situation-sheet[data-part="checklist"] {
+  transform-origin: 0 0;
+  transform: translateX(0px) translateY(0px) rotate(-14deg);
+}
+
+.situation-sheet-motion {
+  display: inline-block;
+  transform-origin: center;
+  transform: translateX(0px) translateY(0px);
+  transition: transform 500ms ease-in-out;
+}
+
+@media (max-width: 767px) {
+  .situation-sheets {
+    transform: translateX(-50%) scale(1.28);
+    transform-origin: center top;
+  }
+}
+
+.step-rail {
+  scrollbar-width: none;
+}
+
+.step-rail::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .situation-sheets {
+    transform: translateX(-50%) scale(1.28);
+    transform-origin: center bottom;
+  }
+}
+
+@media (max-width: 1439px) {
+  body {
+    background-color: #d2def3;
+  }
+}
+
+@media (min-width: 1440px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .situation-card:hover .situation-sheets {
+    transform: translateY(-12px) scale(1.12);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .situation-card:hover .situation-sheet[data-part="checklist"] .situation-sheet-motion {
+    transform: translateX(-12px) translateY(0px);
+  }
+
+  .situation-card:hover .situation-sheet[data-part="table"] .situation-sheet-motion {
+    transform: translateX(12px) translateY(0px);
+  }
+}
+
+/* Second step card. A bright band leaves the radar center and fades at the rim. */
+.radar-wedge-glow {
+  opacity: 0;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .format-card:hover .radar-wedge-glow {
+    animation: wedge-impulse 900ms linear;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .situation-sheets,
+  .situation-sheet-motion {
+    transition: none;
+  }
+}
+
+/* Third step card. Criteria drift left to right through the scan line.
+   The ribbon is paused until the pointer is on the card, and freezes where it is on leave. */
+@keyframes criterion-pass {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.criterion-track {
+  display: flex;
+  width: max-content;
+  animation: criterion-pass 42s linear infinite;
+  animation-play-state: paused;
+}
+
+/* Mobile rest pose matches frame 993:1658. Desktop keeps the inline delays. */
+@media (max-width: 767px) {
+  .criterion-track[data-row="0"] {
+    animation-delay: -6.16s !important;
+  }
+
+  .criterion-track[data-row="1"] {
+    animation-delay: -21.34s !important;
+  }
+
+  .criterion-track[data-row="2"] {
+    animation-delay: -19.29s !important;
+  }
+
+  .criterion-track[data-row="3"] {
+    animation-delay: -34.4s !important;
+  }
+}
+
+.scan-source,
+.scan-reveal {
+  position: absolute;
+  inset: 0;
+}
+
+.scan-source {
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 186px, transparent 198px);
+  mask-image: linear-gradient(90deg, #000 0, #000 186px, transparent 198px);
+}
+
+.scan-reveal {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, transparent 186px, #000 198px);
+  mask-image: linear-gradient(90deg, transparent 0, transparent 186px, #000 198px);
+}
+
+.lime-control {
+  background-color: #e1f300;
+  color: #000;
+}
+
+.lime-control:hover {
+  background-color: #deef08;
+}
+
+.lime-control:active {
+  background-color: #cedf01;
+}
+
+.lime-control:disabled {
+  background-color: #ebf967;
+  color: rgb(0 0 0 / 40%);
+}
+
+.filter-check {
+  fill: #001024;
+  opacity: 0.36;
+}
+
+.group:hover .filter-check {
+  opacity: 0.46;
+}
+
+.group:active .filter-check {
+  opacity: 0.56;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .coverage-card:hover .criterion-track {
+    animation-play-state: running;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .mobile-sheet {
+    animation: sheet-up 240ms ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .criterion-track {
+    animation: none;
+    transform: translateX(-22%);
+  }
+}
+

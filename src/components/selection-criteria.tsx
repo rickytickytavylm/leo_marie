@@ -1,0 +1,111 @@
+"use client";
+
+import { useEffect, useRef, type ReactNode } from "react";
+import { tie } from "@/lib/tie";
+
+const criteria: { n: string; title: string; text: ReactNode }[] = [
+  {
+    n: "01",
+    title: "Медицинская лицензия",
+    text: "Проверяем, есть ли у учреждения действующая лицензия и\u00a0соответствует ли она заявленным медицинским услугам",
+  },
+  {
+    n: "02",
+    title: "Юридический статус",
+    text: "Сверяем регистрацию организации, ОГРН, ИНН и актуальные сведения в ЕГРЮЛ",
+  },
+  {
+    n: "03",
+    title: "Персонал и специалисты",
+    text: tie("Проверяем, есть ли в учреждении профильные врачи, психологи и другие специалисты, необходимые для конкретного формата помощи"),
+  },
+  {
+    n: "04",
+    title: "Договор и стоимость",
+    text: "Проверяем, чтобы условия оказания услуг, стоимость, порядок оплаты, расторжения и возврата были зафиксированы в договоре",
+  },
+  {
+    n: "05",
+    title: "Персональные данные",
+    text: "Проверяем правила обработки персональных данных, необходимые согласия и документы по видеонаблюдению, если\u00a0оно используется",
+  },
+];
+
+const cell =
+  "relative h-[224px] min-[360px]:max-md:h-[168px] md:max-[1439px]:h-[112px] min-[1440px]:h-[112px]";
+
+export function SelectionCriteria() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const align = () => {
+      const line = section.querySelector<HTMLElement>("[data-divider]");
+      if (!line) return;
+      const top = line.getBoundingClientRect().top - section.getBoundingClientRect().top;
+      const y = ((top % 56) + 56) % 56;
+      section.style.setProperty("--criteria-grid-y", `${y}px`);
+    };
+    align();
+    const observer = new ResizeObserver(align);
+    observer.observe(section);
+    window.addEventListener("resize", align);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", align);
+    };
+  }, []);
+
+  return (
+    <section ref={sectionRef} id="pro-podbor" className="relative w-full pt-20 pb-20 md:max-[1439px]:pt-20 md:max-[1439px]:pb-[60px] min-[1440px]:pt-[120px] min-[1440px]:pb-[92px]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(136,136,136,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(136,136,136,0.06) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          backgroundPosition: "0 var(--criteria-grid-y, 2px)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[73px]"
+        style={{ backgroundImage: "linear-gradient(to bottom, #fdfdfd 0%, rgba(253,253,253,0) 100%)" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[73px]"
+        style={{ backgroundImage: "linear-gradient(to top, #fdfdfd 0%, rgba(253,253,253,0) 100%)" }}
+      />
+      <div className="relative mx-auto flex w-full max-w-[1200px] flex-col items-start px-0 max-[1439px]:px-4 min-[1440px]:flex-row">
+        <div className="flex w-full shrink-0 flex-col gap-[24px] min-[1440px]:w-[483px] max-[1439px]:[&_br]:hidden">
+          <h2 className="text-40 font-medium max-md:text-28 md:max-[1439px]:text-[32px] md:max-[1439px]:leading-[40px] min-[1440px]:w-[518px]">
+            {tie("Проверяем каждый центр перед рекомендацией")}
+          </h2>
+          <p className="text-16 text-[#737577]">
+            {tie("При подборе специализированного учреждения мы оцениваем весь комплекс факторов: качество и формат оказываемых услуг, соответствие требованиям законодательства, квалификацию специалистов, безопасность и прозрачность условий")}
+          </p>
+        </div>
+        <ol className="mt-10 flex w-full flex-col max-[1439px]:[&_br]:hidden min-[1440px]:mt-[120px] min-[1440px]:ml-auto min-[1440px]:w-[588px]">
+          {criteria.map((item, index) => {
+            const divided = index < criteria.length - 1;
+            return (
+              <li key={item.n} className={divided ? cell : "relative flex flex-col"}>
+                <div className={`flex items-start gap-[16px] ${index > 0 ? "pt-3" : ""}`}>
+                  <span className="text-24 font-medium text-[#5a98ff] opacity-80">{item.n}</span>
+                  <div className="flex min-w-0 flex-1 flex-col gap-[4px]">
+                    <h3 className="text-24 font-medium max-[1439px]:text-[20px] max-[1439px]:leading-[26px]">{tie(item.title)}</h3>
+                    <p className="text-16 text-[#737577]">{typeof item.text === "string" ? tie(item.text) : item.text}</p>
+                  </div>
+                </div>
+                {divided ? <div data-divider className="absolute inset-x-0 bottom-0 h-px bg-[rgba(39,41,45,0.035)]" /> : null}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
+  );
+}

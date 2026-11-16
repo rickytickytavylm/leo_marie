@@ -1,0 +1,80 @@
+import type { CenterPageData } from "@/content/centers/types";
+
+const cover = "absolute inset-0";
+
+export const klyuchiCenter: CenterPageData = {
+  title: "Реабилитационный центр",
+  region: "Подмосковье",
+  facts: [
+    { label: "Направления:", value: "алкоголизм, наркомания, игровая" },
+    { label: "Формат:", value: "с проживанием" },
+    { label: "Программа:", value: "авторская методика" },
+    { label: "Стоимость:", value: "от 120 000 ₽ / мес" },
+  ],
+  about: {
+    lead: "Реабилитационный центр оказывает помощь людям с алкогольной и наркотической зависимостью. Работает с 2011 года, сочетая медицинское лечение, психотерапию и длительную реабилитацию.",
+    rest: "\n\nПрограмма начинается с диагностики и оценки состояния пациента. При необходимости проводится детоксикация под наблюдением врача. Дальнейшая работа включает индивидуальную и групповую психотерапию, восстановление повседневных навыков и работу с причинами зависимости.\n\nВ центре работают психиатры-наркологи и психотерапевты. Реабилитация проходит в небольших группах, в условиях загородного дома. Для близких предусмотрены индивидуальные консультации и группы поддержки.\n\nПосле завершения программы специалисты продолжают сопровождать пациентов: проводят поддерживающие встречи и остаются на связи. Также доступно амбулаторное лечение и экстренная наркологическая помощь.",
+  },
+  amenities: [
+    { icon: "pool", label: "Бассейн" },
+    { icon: "bath", label: "Сауна" },
+    { icon: "territory", label: "Загородный дом" },
+    { icon: "rooms", label: "Комнаты на 1, 2 и 4" },
+    { icon: "dining", label: "Домашняя кухня", preview: false },
+    { icon: "group", label: "Групповые занятия", preview: false },
+  ],
+  schedule: [
+    { time: "10:20", event: "Групповое занятие" },
+    { time: "11:10", event: "Лекция" },
+    { time: "11:50", event: "Индивидуальная терапия" },
+    { time: "12:40", event: "Час директора" },
+    { time: "14:00", event: "Обед" },
+    { time: "14:20", event: "Релакс" },
+    { time: "15:15", event: "Подъём, обливание" },
+    { time: "15:30", event: "Групповая терапия" },
+    { time: "17:00", event: "Полдник" },
+    { time: "17:15", event: "Урок творчества" },
+    { time: "18:00", event: "Письменные работы" },
+    { time: "18:20", event: "Индивидуальная терапия" },
+    { time: "19:00", event: "Ужин" },
+    { time: "19:20", event: "Группа со специалистом" },
+    { time: "20:30", event: "Психологическая работа" },
+    { time: "21:30", event: "Группа с психологом" },
+    { time: "23:00", event: "Сауна, бассейн" },
+    { time: "00:00", event: "Отбой" },
+  ],
+  staff: {
+    kind: "people",
+    summary: "Руководитель программы, 4\u00A0консультанта, 2\u00A0врача\u2011психиатра, врач\u2011нарколог, врач\u2011анестезиолог\u2011реаниматолог, волонтёрский состав (количество меняется).",
+    people: [
+      { name: "Алексей Гитлевич", role: "Психиатр-нарколог", photo: "/centers/klyuchi/staff/gitlevich.webp" },
+      { name: "Владислав Владимиров", role: "Руководитель программы", photo: "/centers/klyuchi/staff/vladimirov.webp" },
+      { name: "Наталья Бычкова", role: "Клинический психолог", photo: "/centers/klyuchi/staff/bychkova.webp" },
+    ],
+  },
+  features: [
+    "Работа с семьёй",
+    "Сопровождение после курса",
+    "Анонимно, без учёта",
+    "Двойной диагноз при стабильном состоянии",
+    "Выезд нарколога на дом",
+  ],
+  gallery: {
+    main: { src: "/centers/klyuchi/group.webp", alt: "Зал для занятий", frameClassName: cover },
+    topMiddle: { src: "/centers/klyuchi/single.webp", alt: "Отдельная комната", frameClassName: cover },
+    topRight: { src: "/centers/klyuchi/pool.webp", alt: "Бассейн", frameClassName: cover },
+    bottomMiddle: { src: "/centers/klyuchi/dining.webp", alt: "Кухня", frameClassName: cover },
+    more: { src: "/centers/klyuchi/rest.webp", alt: "Комната отдыха", frameClassName: cover },
+    moreLabel: "+ 3 фотографии",
+    photos: [
+      { src: "/centers/klyuchi/hall.webp", alt: "Холлы центра" },
+      { src: "/centers/klyuchi/room.webp", alt: "Комнаты" },
+      { src: "/centers/klyuchi/pool.webp", alt: "Бассейн" },
+      { src: "/centers/klyuchi/bath.webp", alt: "Сауна" },
+      { src: "/centers/klyuchi/group.webp", alt: "Зал для занятий" },
+      { src: "/centers/klyuchi/dining.webp", alt: "Кухня" },
+      { src: "/centers/klyuchi/rest.webp", alt: "Комната отдыха" },
+      { src: "/centers/klyuchi/single.webp", alt: "Отдельная комната" },
+    ],
+  },
+};
